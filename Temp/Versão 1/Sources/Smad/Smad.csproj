@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AF86EC3-84A3-4611-B534-5170797900D0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Smad</RootNamespace>
+    <AssemblyName>Smad</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IronPython, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IronPython.2.7.11\lib\net45\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Modules, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IronPython.2.7.11\lib\net45\IronPython.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.SQLite, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IronPython.2.7.11\lib\net45\IronPython.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Wpf, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IronPython.2.7.11\lib\net45\IronPython.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="libDPS">
+      <HintPath>..\Modules\DockPanelSuite\obj\Debug\libDPS.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DynamicLanguageRuntime.1.3.0\lib\net45\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DynamicLanguageRuntime.1.3.0\lib\net45\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Metadata, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DynamicLanguageRuntime.1.3.0\lib\net45\Microsoft.Scripting.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="Supremes, Version=1.0.0.6474, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\dcsoup.1.0.0\lib\net45\Supremes.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\IdAppDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\IdAppDialog.Designer.cs">
+      <DependentUpon>IdAppDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\IdApplicationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\IdApplicationDialog.Designer.cs">
+      <DependentUpon>IdApplicationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\App.cs" />
+    <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\Filter.cs" />
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="Helpers\Accordion\Accordion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Accordion\FontEx.cs" />
+    <Compile Include="Helpers\Accordion\FontExWPF.cs" />
+    <Compile Include="Helpers\Accordion\IToolTips.cs" />
+    <Compile Include="Helpers\Accordion\MultiKey.cs" />
+    <Compile Include="Helpers\Accordion\OpacityEx.cs" />
+    <Compile Include="Helpers\Accordion\ResizeBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Accordion\StreamEx.cs" />
+    <Compile Include="Helpers\Scrapers\GooglePlayScraper.cs" />
+    <Compile Include="Helpers\WordCloud\CommentsExtractor.cs" />
+    <Compile Include="Helpers\WordCloud\ComponentFactory.cs" />
+    <Compile Include="Helpers\WordCloud\InfiniteProgressBarWrapper.cs" />
+    <Compile Include="Helpers\WordCloud\InputType.cs" />
+    <Compile Include="Helpers\WordCloud\ProgressBarWrapper.cs" />
+    <Compile Include="Pages\MasterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\MasterPage.Designer.cs">
+      <DependentUpon>MasterPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\ChecklistPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\ChecklistPanel.Designer.cs">
+      <DependentUpon>ChecklistPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\CommentsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\CommentsPanel.Designer.cs">
+      <DependentUpon>CommentsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\DefaultInforPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\DefaultInforPanel.Designer.cs">
+      <DependentUpon>DefaultInforPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\ReportPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\ReportPanel.Designer.cs">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\TimePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\TimePanel.Designer.cs">
+      <DependentUpon>TimePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\WordCloudPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Panels\Automatic\WordCloudPanel.Designer.cs">
+      <DependentUpon>WordCloudPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Panels\Manual\ChecklistPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Panels\Manual\ChecklistPanel.Designer.cs">
+      <DependentUpon>ChecklistPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Panels\Manual\ChecklistPanel3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Panels\Manual\ChecklistPanel3.Designer.cs">
+      <DependentUpon>ChecklistPanel3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Panels\Manual\PrintViewPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Panels\Manual\PrintViewPanel.Designer.cs">
+      <DependentUpon>PrintViewPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StartedPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\StartedPage.Designer.cs">
+      <DependentUpon>StartedPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\NewExperimentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\NewExperimentDialog.Designer.cs">
+      <DependentUpon>NewExperimentDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Experiment.cs" />
+    <Compile Include="Entities\Option.cs" />
+    <Compile Include="Modules\LayoutManager\DefaultLayouts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DefaultLayouts.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\LayoutManager\LayoutData.cs" />
+    <Compile Include="Modules\LayoutManager\LayoutTheme.cs" />
+    <Compile Include="Modules\LayoutManager\UserLayout.cs" />
+    <Compile Include="Modules\ObjectSerialize\ObjectData.cs" />
+    <Compile Include="Modules\ObjectSerialize\RecentObject.cs" />
+    <Compile Include="Pages\SettingsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\SettingsPage.Designer.cs">
+      <DependentUpon>SettingsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\BrowserPreviewPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\BrowserPreviewPanel.Designer.cs">
+      <DependentUpon>BrowserPreviewPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ReportPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\ReportPanel.Designer.cs">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\CardView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CardView.Designer.cs">
+      <DependentUpon>CardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CardViewList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\ItemError.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ItemError.Designer.cs">
+      <DependentUpon>ItemError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Reporter\BaseReportPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Reporter\BaseReportPanel.Designer.cs">
+      <DependentUpon>BaseReportPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Reporter\InforReportPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Reporter\InforReportPanel.Designer.cs">
+      <DependentUpon>InforReportPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Reporter\IReportPanel.cs" />
+    <Compile Include="UserControls\Reporter\WordCloudReportPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Reporter\WordCloudReportPanel.Designer.cs">
+      <DependentUpon>WordCloudReportPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Settings\BaseSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Settings\BaseSetting.Designer.cs">
+      <DependentUpon>BaseSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Settings\GeneralSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Settings\GeneralSetting.Designer.cs">
+      <DependentUpon>GeneralSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Started\BaseStarted.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Started\BaseStarted.Designer.cs">
+      <DependentUpon>BaseStarted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Started\NewAppStarted.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Started\NewAppStarted.Designer.cs">
+      <DependentUpon>NewAppStarted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Started\NewManualStarted.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Started\NewManualStarted.Designer.cs">
+      <DependentUpon>NewManualStarted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Started\ProjetTypeStarted.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Started\ProjetTypeStarted.Designer.cs">
+      <DependentUpon>ProjetTypeStarted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Started\RecentStarted.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Started\RecentStarted.Designer.cs">
+      <DependentUpon>RecentStarted.cs</DependentUpon>
+    </Compile>
+    <None Include="Resources\add print.jpg" />
+    <None Include="Resources\icon exit.png" />
+    <None Include="Resources\Captura de tela 2021-02-16 170343.jpg" />
+    <None Include="Resources\icon_info.png" />
+    <EmbeddedResource Include="Dialogs\IdAppDialog.resx">
+      <DependentUpon>IdAppDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\IdApplicationDialog.resx">
+      <DependentUpon>IdApplicationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\NewExperimentDialog.resx">
+      <DependentUpon>NewExperimentDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\LayoutManager\DefaultLayouts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DefaultLayouts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MasterPage.resx">
+      <DependentUpon>MasterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Panels\Automatic\ChecklistPanel.resx">
+      <DependentUpon>ChecklistPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Panels\Automatic\CommentsPanel.resx">
+      <DependentUpon>CommentsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Panels\Automatic\DefaultInforPanel.resx">
+      <DependentUpon>DefaultInforPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Panels\Automatic\ReportPanel.resx">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Panels\Automatic\TimePanel.resx">
+      <DependentUpon>TimePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Panels\Automatic\WordCloudPanel.resx">
+      <DependentUpon>WordCloudPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Panels\Manual\ChecklistPanel.resx">
+      <DependentUpon>ChecklistPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Panels\Manual\ChecklistPanel3.resx">
+      <DependentUpon>ChecklistPanel3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Panels\Manual\PrintViewPanel.resx">
+      <DependentUpon>PrintViewPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\SettingsPage.resx">
+      <DependentUpon>SettingsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\StartedPage.resx">
+      <DependentUpon>StartedPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\BrowserPreviewPanel.resx">
+      <DependentUpon>BrowserPreviewPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ReportPanel.resx">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserControls\CardView.resx">
+      <DependentUpon>CardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ItemError.resx">
+      <DependentUpon>ItemError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Reporter\BaseReportPanel.resx">
+      <DependentUpon>BaseReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Reporter\InforReportPanel.resx">
+      <DependentUpon>InforReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Reporter\WordCloudReportPanel.resx">
+      <DependentUpon>WordCloudReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Settings\GeneralSetting.resx">
+      <DependentUpon>GeneralSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Started\NewAppStarted.resx">
+      <DependentUpon>NewAppStarted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Started\NewManualStarted.resx">
+      <DependentUpon>NewManualStarted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Started\ProjetTypeStarted.resx">
+      <DependentUpon>ProjetTypeStarted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Started\RecentStarted.resx">
+      <DependentUpon>RecentStarted.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="MachineLearning\hello.txt" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modules\DockPanelSuite\DockPanelSuite.csproj">
+      <Project>{8cb6da58-f5cf-4301-98af-cfc80490beba}</Project>
+      <Name>DockPanelSuite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\ObjectListView\ObjectListView.csproj">
+      <Project>{8d056cf8-83f8-47b0-91e3-a5113832d6bd}</Project>
+      <Name>ObjectListView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\ObjectSerializeManager\ObjectSerializeManager.csproj">
+      <Project>{29988D97-D048-43E0-917E-992CCC2203FC}</Project>
+      <Name>ObjectSerializeManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\WordCloudGenerator\WordCloudGenerator.csproj">
+      <Project>{50c9c9c1-3444-46e7-b8fc-37d7161010dc}</Project>
+      <Name>WordCloudGenerator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_robot_evaluation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\app icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="StyleSheet.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_word_cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_comments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_time_comments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_general_infor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_report.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

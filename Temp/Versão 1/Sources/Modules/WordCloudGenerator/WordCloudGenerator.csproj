@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{50C9C9C1-3444-46E7-B8FC-37D7161010DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nulo.WinForms.Control.WordCloudGenerator</RootNamespace>
+    <AssemblyName>libWCG</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="WordCloud.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GdiGraphicEngine.cs" />
+    <Compile Include="Geometry\BaseLayout.cs" />
+    <Compile Include="Geometry\DataStructures\QuadTree.cs" />
+    <Compile Include="Geometry\DataStructures\QuadTreeNode.cs" />
+    <Compile Include="Geometry\IGraphicEgine.cs" />
+    <Compile Include="Geometry\ILayout.cs" />
+    <Compile Include="Geometry\LayoutItem.cs" />
+    <Compile Include="Geometry\SpiralLayout.cs" />
+    <Compile Include="Geometry\TypewriterLayout.cs" />
+    <Compile Include="LayoutFactory.cs" />
+    <Compile Include="LayoutType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextAnalyses\Blacklist\CommonBlacklist.cs" />
+    <Compile Include="TextAnalyses\Blacklist\En\CommonWords.cs" />
+    <Compile Include="TextAnalyses\Blacklist\IBlacklist.cs" />
+    <Compile Include="TextAnalyses\Blacklist\NullBlacklist.cs" />
+    <Compile Include="TextAnalyses\Extractors\BaseExtractor.cs" />
+    <Compile Include="TextAnalyses\Extractors\FileExtractor.cs" />
+    <Compile Include="TextAnalyses\Extractors\IProgressIndicator.cs" />
+    <Compile Include="TextAnalyses\Extractors\StringExtractor.cs" />
+    <Compile Include="TextAnalyses\Extractors\UriExtractor.cs" />
+    <Compile Include="TextAnalyses\Processing\IWord.cs" />
+    <Compile Include="TextAnalyses\Processing\Word.cs" />
+    <Compile Include="TextAnalyses\Processing\WordExtensions.cs" />
+    <Compile Include="TextAnalyses\Processing\WordGroup.cs" />
+    <Compile Include="TextAnalyses\Stemmers\En\PorterStem.cs" />
+    <Compile Include="TextAnalyses\Stemmers\En\PorterStemmer.cs" />
+    <Compile Include="TextAnalyses\Stemmers\IWordStemmer.cs" />
+    <Compile Include="TextAnalyses\Stemmers\NullStemmer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WordCloud.resx">
+      <DependentUpon>WordCloud.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
